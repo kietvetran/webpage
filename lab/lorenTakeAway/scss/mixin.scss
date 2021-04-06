@@ -1,0 +1,79 @@
+/*
+  Shadow for buttons: Commonly found on elements supposed to be buttons
+*/
+@mixin shadow() {
+  box-shadow: 0 0px 0px 2px rgba(0, 0, 0, .3);
+}
+
+@mixin shadow-buttons() {
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.05);
+}
+
+@mixin shadow-buttons-hover() {
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.15);
+}
+
+@mixin shadow-buttons-active() {
+  box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.25);
+}
+
+@mixin transition( $property, $duration, $timing, $delay: 0s ) {
+  -webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+  -o-transition: $property $duration $timing $delay;
+  -ms-transition: $property $duration $timing $delay;
+  transition: $property $duration $timing $delay;
+}
+
+@mixin transition-dalay( $delay ) {
+  -webkit-transition-delay: $delay;
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -ms-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+@mixin opacity( $property ) {
+  opacity: $property;
+  filter: alpha(opacity= ($property*100));
+}
+
+@mixin box-shadow() {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+@mixin content-shadow() {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+@mixin content-box($width: 100%) {
+  border: 3px solid #fff;
+  padding: 15px;
+  margin: 10px 10px 20px 0;
+  float: left;
+  clear: both;
+  width: $width;
+  @include content-shadow();
+}
+
+@mixin active-bounce() {
+  position: relative;
+  top: 0;
+  &:active {
+    top: 2px;
+  }
+}
+
+@mixin disabled() {
+  border: 1px solid $grey-light;
+  background-color: $bg-disabled;
+  color: #000;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}

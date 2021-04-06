@@ -1,0 +1,166 @@
+body, .body-text, textarea, input, h1, h2, h3, h4, h5{
+  font-family: arial, sans-serif;
+}
+
+body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option, .simular-label, abbr {
+  font-size: $font-size;
+  line-height: $font-size *1.4;
+  color: $color-font;
+}
+
+abbr {
+  outline: none;
+  text-decoration: none;
+}
+
+label, legend, .simular-label {
+  font-weight: 500;
+}
+
+h1, .h1, {
+  color: $color-font;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+h2, .h2, {
+  color: $color-font;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+h3, .h3, {
+  color: $color-font;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+
+h1, h2, .h1, .h2 {
+  padding: 10px 0 20px 0;
+}
+
+h3, h4, .h3, .h4 {
+  padding: 5px 0 10px 0;
+}
+
+p, .body-paragraph {
+  padding-bottom: 15px;
+}
+
+.lead {
+  color: $color-font;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.ellipsis {
+  @include ellipsis();
+} 
+
+span.ellipsis, a.ellipsis {
+  display: inline-block;
+}
+
+a {
+  text-decoration: underline;
+  cursor: pointer;
+  &, &:focus, &:hover, &:visited {
+    color: $color-font;
+  }
+
+  &.blue-link {
+    &, &:focus, &:hover, &:visited {
+      color: $blue;
+    }
+  }
+}
+
+a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],input[type="submit"], div[role="alert"] {
+  &.aria-hidden {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:focus {
+    outline: 1px dotted #333;
+    outline-offset: 3px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+}
+
+
+.shy {
+  @include opacity(.5);
+}
+
+a.disabled, .disabled {
+  &, &:hover, &:focus {
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
+@media screen and (max-width: $breakpoint-sm) { 
+  h1, .h1, {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  h2, .h2, {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  h3, .h3, {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  h4, .h4, {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  h5, .h5, {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  h1, h2, .h1, .h2 {
+    padding: 5px 0 15px 0;
+  }
+
+  h3, h4, .h3, .h4 {
+    padding: 0 0 5px 0;
+  }  
+
+  .lead {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option, .simular-label {
+    font-size: $font-size-small;
+    line-height: $font-size-small*1.3;
+  }
+
+  select.select-box {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .shy, .small-font { 
+    font-size: 90%;
+  }
+}

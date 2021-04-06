@@ -1,0 +1,375 @@
+/******************************************************************************
+  field 
+******************************************************************************/
+.input-field {
+  border-radius: 2px;
+  background: $white none repeat 0 0;
+  display: block;
+  padding: 9px 9px;
+  border: 1px solid $grey-dark;
+  width: 100%;
+  min-height: 42px;
+
+  &:hover {
+    border-color: $blue;
+  }
+
+  &:focus, &:active {
+    border-color: $blue;
+    box-shadow: 0 0 0 2px $blue-light;
+    outline: none;
+
+    + .input-field-description {
+      margin-top: -12px;
+    }
+  }
+
+  &:disabled {
+    @include disabled();
+  }
+
+  &.-has-error, &.-error {
+    box-shadow: 0 0 0 1px $red;
+    &, &:hover {
+      border-color: $red;
+    }
+    &:focus, &:active {
+      box-shadow: 0 0 0 2px $blue-light;
+    }
+  }
+
+  + .input-field-description {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    margin: 10px 0 0 4px;
+    padding: 0 10px;
+    background: $white none repeat 0 0;
+    @include transition( margin, .2s, ease-in-out); 
+  }
+}
+
+/******************************************************************************
+  textarea 
+******************************************************************************/
+
+
+/******************************************************************************
+  checkbox & radio 
+******************************************************************************/
+.input-radio, .input-checkbox {
+  opacity: .01;
+  filter: alpha(opacity=1);
+  position: relative;
+  z-index: -1;
+  margin: 0 -15px -30px 0;
+
+  &.-hide {
+    + label {
+      display: none;
+    }
+  }
+
+  &.-has-error, .-error {    
+    + label {
+      &, &:hover {
+        &:before {
+          border-color: $red;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    + label {
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  + label {
+    max-width: 600px;
+    display: inline-block;
+    position: relative;
+    white-space: normal;
+    margin: 0 5px 5px 0;
+    padding: 12px 10px 8px 35px;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &:before {
+      height: 20px;
+      width: 20px;
+      margin: 12px 0 0 3px;
+      background: $white none no-repeat center center / 13px auto;
+      border: 2px solid $grey-dark;
+    }
+
+    &:after {
+      height: 25px;
+      width: 25px;      
+      margin: 9px 0 0 0;      
+      border: 1px dotted #333;
+      display: none;
+    }
+
+    &:hover {
+      &:before {
+        border-color: $blue;
+      }
+    }
+  }
+}
+
+.input-radio {
+  + label {
+    display: inline-block;
+    cursor: pointer;
+
+    &:before {
+      border-radius: 100%;
+    }
+  }
+
+  &:checked + label {
+    border-color: transparent;
+
+    &:before {
+      background-color: $blue; 
+      border: 4px solid $white;
+      box-shadow: 0 0 0 2px $grey-dark;
+    }
+  }
+}
+
+.input-checkbox {
+  + label {
+    display: inline-block;
+    border: 0 none;
+    cursor: pointer;
+
+    &:before, &:after {
+    }
+
+    &:before {
+      border-radius: 2px;
+    }
+  }
+
+  &:checked + label {
+    &:before {
+      border-color: $blue;        
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA0NjkuMTg0IDQ2OS4xODUiPjxwYXRoIGZpbGw9IiMwMDc1RDIiIGQ9Ik00NjIuNSw5Ni4xOTNsLTIxLjcyNi0yMS43MjZjLTguOTUxLTguOTUtMjMuNTYyLTguOTUtMzIuNTksMEwxODAuMzY4LDMwMi4zNjFsLTExOS4zNC0xMTkuMzQgICBjLTguOTUtOC45NTEtMjMuNTYyLTguOTUxLTMyLjU4OSwwTDYuNzEyLDIwNC43NDdjLTguOTUsOC45NTEtOC45NSwyMy41NjIsMCwzMi41ODlMMTYzLjk5NywzOTQuNjIgICBjNC41MTQsNC41MTQsMTAuMzI3LDYuODA5LDE2LjIxOCw2LjgwOXMxMS43ODEtMi4yOTUsMTYuMjE5LTYuODA5TDQ2Mi4yNywxMjguNzgzQzQ3MS40NSwxMTkuNjgsNDcxLjQ1LDEwNS4xNDUsNDYyLjUsOTYuMTkzeiIvPjwvc3ZnPg==);
+    }
+  }
+
+  &.-box {
+    + label {
+      border: 1px solid $grey;
+      border-radius: 2px;          
+      margin-bottom: 0; 
+      padding-top: 5px;
+      padding-bottom: 2px;
+      background: $bg-disabled none repeat 0 0;
+      min-height: 31px;
+      &:before {
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+      &:after {
+        margin-top: 2px;
+        margin-left: 3px;
+      }      
+    }
+
+    &:checked {
+      + label {
+        background-color: $blue;
+        color: $white;
+        border-color: transparent;
+      }
+
+      &:focus + label:after {
+        border-color: $white;
+      }
+    }
+  }
+}
+
+/******************************************************************************
+  button
+******************************************************************************/
+.action-btn, .primary-btn, .secondary-btn {
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 0;
+  padding: 9px 15px;  
+  box-shadow: none;
+  border: 0 none;
+  color: $grey-dark;
+  text-decoration: none;
+
+  &.-hide {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $blue;
+  }
+
+  &:focus, &:active {
+    border-color: $blue;
+    box-shadow: 0 0 0 2px $blue-light;
+    outline: none;
+  }
+
+  &.-arrow-right, &.-arrow-left {
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      border-style: solid;
+      border-width: 10px;
+      margin: -9px 0 0 0;
+    }
+  }
+
+  &.-arrow-right {
+    padding-right: 30px;
+    &:before, &:after {
+      right: 0;
+      border-color: transparent transparent transparent $white;
+    }     
+    &:after {
+      margin-right: 2px;
+    }     
+  }
+
+  &.-arrow-left {
+    padding-left: 30px;
+    &:before, &:after {
+      left: 0;
+      border-color: transparent $white transparent transparent;
+    }
+    &:after {
+      margin-left: 2px;
+    }     
+  }
+
+  &.-active-bounce {
+    @include active-bounce();
+  }
+
+  &.-sm, &.-sm-size {
+    padding: 4px 10px;
+  }
+  &.-xs, &.-xs-size {
+    padding: 2px 6px;
+  }
+}
+
+.action-btn {
+  background: $green-dark none repeat 0 0;
+  border: 1px solid $green;
+
+  &, &:focus, &:hover, &:visited {
+    color: $white;
+  }
+
+  &.-arrow-right:after {
+    border-color: transparent transparent transparent $green-dark;
+  }
+  &.-arrow-left:after {
+    border-color: transparent $green-dark transparent transparent;
+  }
+}
+
+.primary-btn {
+  border: 1px solid $blue;
+  background: $blue none repeat 0 0;
+ 
+  &, &:focus, &:hover, &:visited {
+    color: $white;
+  }
+
+  &.-arrow-right:after {
+    border-color: transparent transparent transparent $blue;
+  }
+  &.-arrow-left:after {
+    border-color: transparent $blue transparent transparent;
+  }
+}
+
+.secondary-btn {
+  border: 1px solid $grey-dark;
+  background: $white none repeat 0 0;
+
+  &, &:focus, &:hover, &:visited {
+    color: $black;
+  }
+
+  &.-arrow-right:before {
+    border-color: transparent transparent transparent $grey-dark;
+  }
+  &.-arrow-left:before {
+    border-color: transparent $grey-dark transparent transparent;
+  }
+
+  &.-arrow-right:after {
+    border-color: transparent transparent transparent $white;
+  }
+  &.-arrow-left:after {
+    border-color: transparent $white transparent transparent;
+  }
+}
+
+/******************************************************************************
+  select - option 
+******************************************************************************/
+.select-box {
+  padding: 9px 32px 9px 10px;
+  border: 1px solid $grey-dark;
+  border-radius: 2px;
+  width: 100%;
+  @include transition( all, .2s, ease-in-out); 
+
+  &:hover {
+    border-color: $blue;
+  }
+
+  &:focus, &:active {
+    border-color: $blue;
+    box-shadow: 0 0 0 2px $blue-light;
+    outline: none;
+  }
+
+  &:disabled {
+    @include disabled();
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &.-has-error, .-error {
+    border-color: $red;
+    &:focus {
+      outline-color: $white;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) { 
+  .input-field {
+    min-height: 38px;
+  }
+}

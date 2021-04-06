@@ -1,0 +1,253 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;  
+  background: $color-bg none no-repeat 0 0;
+  position: relative;
+  padding-top: 100px;
+
+  #header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }  
+
+
+  @media screen and (max-width: $breakpoint-sm) {
+    padding-top: 60px;
+  }
+}
+
+#header {
+  background: $color-bg-header none no-repeat 0 0;
+  white-space: nowrap;
+  border-bottom: 1px solid $color-border;
+  box-shadow: 0 5px 5px $color-shadow;
+
+  .layout {
+    display: table;
+    > div {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+  }
+
+  #navigation {
+    width: 100%;
+    text-align: right;
+    .tablist > li {
+      display: inline-block;
+      padding-left: $space-medium;
+    }
+  }
+}
+
+#main {
+  .layout {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.layout {
+  width: 100%;
+  max-width: $app-width;
+  margin: 0 auto;
+  padding: $space-small;
+}
+
+.tab-btn {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid $color-shadow;
+  }
+
+  &:hover, &:focus {
+    color: $color-brand;
+  }
+
+  &.-show, &.-stay-open {
+    font-weight: 700;
+    color: $color-brand;
+    &:before {
+      border-color: $color-brand;
+    }
+  }
+}
+
+.tab-panel {
+  border-radius: 2px;
+  margin-top: 10px;
+  padding: 15px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: none;
+
+  &.-show, &.-stay-open {
+    display: block;
+    position: relative;
+  }
+
+  &.-menu {
+    margin-top: 0;
+    h2 + .notification, h3 + .notification {
+      @include opacity(.8);
+      margin: -10px 0 20px 0;
+    }
+  }
+}
+
+#home-description {
+  text-align: center;
+  margin: 0 0 $space-large 0;  
+  font-size: 110%;
+  @media screen and (max-width: $breakpoint-mdp) {
+    text-align: left;
+    margin: 0 0 $space-small 0;  
+  }
+}
+
+#home-gallary {
+  position: relative;
+  margin: 0 0 $space-extra-large 0;
+
+  .carousel_item img {
+    border-radius: $border-round;
+  }
+
+  @media screen and (max-width: $breakpoint-mdp) {
+    margin: 0 0 $space-small 0;  
+  }
+}
+
+#contact-information {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+
+  > div {
+    width: 32%;
+    padding: $space-medium;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: $border-round;
+    border: 2px solid $color-white;
+    margin-left: 2%;
+    background-color: $color-bg-card;
+    &:first-child {
+      margin-left: 0;
+      white-space: normal;
+    }
+  }
+
+  h2 {
+    opacity: .7;
+  }
+
+  @media screen and (max-width: $breakpoint-mdp) {
+    display: block;
+    > div {
+      text-align: left;
+      width: auto;
+      margin-bottom: $space-medium;
+      margin-left: 0;
+    }
+
+    h2 {
+      padding-bottom: $space-extra-small;
+    }
+  }
+}
+
+/*
+.open, .contact, .address {
+  margin: 0 0 25px 0;
+  > div {
+    margin-bottom: 5px;
+  }
+}
+*/
+
+
+#modal {
+  position: fixed;
+  z-index: 10;
+  display: none;
+
+  &, &:before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8) none repeat 0 0;
+  }
+
+  &.-open {
+    display: block;
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 20;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 100%;
+    font-weight: 700;
+    background-color: $white;
+    color: $black-dark;
+    font-size: 20px;
+
+    &:hover, &:focus {
+      color: $orange;
+    }
+  }
+
+  > .content {
+    width: $breakpoint-mdp;
+    margin: 20px auto 0 auto;
+    border-radius: $border-round;
+    position: relative;
+    background: $white none repeat 0 0;
+    padding: $space-large;
+
+    .image-cnt {
+      color: $black-dark;
+    }
+
+    @media screen and (max-width: $breakpoint-mdp) { 
+      padding: $space-medium $space-small;
+      width: 94%;
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+  }
+}

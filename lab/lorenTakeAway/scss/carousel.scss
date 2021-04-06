@@ -1,0 +1,236 @@
+.carousel_screen {
+  overflow: hidden;
+  margin: 0;
+  background: transparent none repeat scroll 0 0;
+  position: relative;
+  visibility: hidden;
+
+  &.initialized {
+    visibility: visible;
+  }
+
+  &.carousel_moving {
+    &:before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 15;
+      background: transparent none repeat 0 0 !important;
+    }
+  }
+
+  .carousel_slider_holder {
+    overflow: hidden;
+  }
+
+  .carousel_slider {
+    overflow: visible;
+    white-space: nowrap;
+    position: relative;
+    padding: 0;
+    left: 0; 
+    margin: 0;
+    list-style: none;
+    
+    transition-property: all;
+    -ms-transition-property: all; 
+    -moz-transition-property: all; 
+    -webkit-transition-property: all; 
+    -o-transition-property: all;  
+    
+    transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+
+    &.scrolling {
+      text-align: center;
+      .carousel_item {
+        display: inline-block;
+        text-align: left;
+        white-space: normal;
+        margin: 0 0 0 15px;
+        padding: 0;        
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .carousel_item {
+    overflow: hidden;  
+    display: block;
+    position: relative;
+    z-index: 10;  
+    &.cloned {
+      visibility: hidden;
+      z-index: 5;
+    }
+
+    &.inactive {
+      display: none;
+    }
+
+    .text {
+      padding: 0;
+      margin: 10px;
+      white-space: normal;
+    }
+
+    .image_text {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      background-color: #EEEEEE       
+    }
+  }
+
+  &.included_arrows {
+    .image {
+      .text {
+        margin-left: 45px;
+        margin-right: 45px;        
+      }
+    }
+  }
+
+  .carousel_bullets {
+    text-align: center;
+    padding: 10px;
+    .bullet_item {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      border: 0 none;
+      position: relative;
+
+      &.inactive {
+        display: none;
+      }
+
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 7px;
+        right: 7px;
+        top: 7px;
+        bottom: 7px;
+        background: #CCCCCC none repeat 0 0;
+        border-radius: 100%;
+      }
+
+      &:hover { 
+        &:after {
+          background-color: $color-brand;
+        }
+      }
+
+      &.active {
+        cursor: default;
+        &, &:hover {
+          &:after {
+            background-color: $color-brand;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel_arrow {
+    z-index: 30;
+    position: absolute;
+    bottom: 50%;
+    cursor: pointer;
+    margin: 0;
+    border: 0 none;
+
+    &.inactive {
+      display: none;
+    }
+
+    &.carousel_left {
+      left: 0;
+
+      &:after {
+        border-color: transparent #FFFFFF transparent transparent;
+      }
+
+      &:before {
+        border-left: 0;
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;        
+      }
+
+      &:hover {
+        &:after {
+          border-color: transparent $color-brand transparent transparent; 
+        }
+      }
+    }
+
+    &.carousel_right {
+      right: 0;
+
+      &:after {
+        margin-left: 14px;
+        border-color: transparent transparent transparent #FFFFFF;
+      }
+
+      &:before {
+        border-right: 0;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;        
+      }
+
+      &:hover {
+        &:after {
+          border-color: transparent transparent transparent $color-brand;
+        }
+      }
+    }
+
+    &:before {
+      content: " ";
+      position: absolute;
+      top: -5px;
+      left: 0;
+      height: 30px;
+      width: 33px;
+      border: 1px solid #000000;
+      background: #333333 none repeat 0 0;
+      opacity: 0.5;
+      filter : alpha(opacity=50);
+    }
+
+    &:after {
+      content: " ";
+      border-width: 10px;
+      border-style: solid;
+      display: block;
+      position: relative;      
+    }
+
+    &:hover {
+      &:before {
+        background-color: #FFFFFF;
+        opacity: 1;
+        filter : alpha(opacity=100);
+      }
+    }
+  }
+}
+
+
+

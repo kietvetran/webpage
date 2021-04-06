@@ -1,0 +1,76 @@
+/******* COLOR ********/
+$font-size: 20px;
+$font-size-small: 16px;
+
+$color-font: #333;
+/*
+$color-bg: #f3f3f3;
+$color-bg-header: #f0f0f0;
+*/
+$color-bg: #fff;
+$color-bg-header: #fafafa;
+$color-bg-card: #fafafa;
+
+/*
+$color-bg: #F9CD5D;
+$color-bg-header: #fff;
+*/
+$color-border: #999;
+$color-shadow: #ccc;
+
+$color-brand: #00a0e9;
+$color-information: #C0E8F6;
+$color-food-label: #F9CD5D;
+$color-white: #fff;
+
+$border-round: 6px;
+
+$space-extra-large: 40px;
+$space-large: 30px;
+$space-medium: 20px;
+$space-small: 10px;
+$space-extra-small: 5px;
+
+
+$red: #d52700;
+$red-light: #ff5733;
+$sand: #E1D5AF;
+
+$green: #89b339;
+$green-light: #7fd41b;
+$green-dark: #6ab023;
+
+$orange : #E19100;
+
+$white: #FFFFFF;
+
+$grey: #ADADAD;
+$grey-light: #D8D8D8;
+$grey-dark: #676767;
+
+$black: #323232; 
+$black-dark: #212121; 
+
+$blue: #0075D2;
+$blue-dark: #002776; // Titles, lead, overlays
+$blue-light: #008ED2; // Anchor, text on white buttons, active radio buttons
+
+$purple-dark: #A20076;
+$purple: #552c87;
+$purple-light: #793ec1;
+$yellow : #e6e600;
+$bg-color: #ffffff;
+$bg-basic: #f3f2ee;
+$bg-disabled: #fafafa;
+
+//
+$breakpoint-sm: 480px;
+$breakpoint-md: 980px;
+$breakpoint-mdp: 768px;
+$breakpoint-lg: 1024px;
+
+/******* LAYOUT ********/
+$app-width: 1024px;
+$app-width-half: (1024px/2);
+$app-width-min: 320px;
+$app-width-min-half: (320px/2);

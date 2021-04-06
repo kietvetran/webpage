@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <title>Løren Take Away</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
+
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <!--<base href="https://kietvetran.github.io/lab/chi/">-->
+
+  <!-- data -->
+  <script type="text/javascript" src="./data/home-gallery.js"></script>
+  <script type="text/javascript" src="./data/menu-take-away.js"></script>
+  <script type="text/javascript" src="./data/information.js"></script>
+
+  <!-- Script -->
+  <script type="text/javascript" src="./js/jquery/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="./js/fastclick.js"></script>
+  <script type="text/javascript" src="./js/carousel.js"></script> 
+  <script type="text/javascript" src="./js/main.js"></script> 
+
+</head>
+<body>
+  <header id="header">
+    <div class="layout">
+      <div id="heading" class="layout-left">
+        <a href="#home">
+          <h1>
+            <span class="name">Løren</span>
+            <span class="lead">Takeaway</span>
+          </h1>
+        </a>
+      </div>
+      <div id="navigation" class="layout-right">
+        <nav>
+          <ul class="tablist" role="tablist">
+            <li role="presentation">
+              <a href="#home" role="tab" id="tab-home" aria-selected="true" aria-controls="panel-home" class="tab-btn -main -show">
+                Hjem
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#menu" role="tab" id="tab-menu" aria-selected="false" aria-controls="panel-menu" class="tab-btn -main">
+                Meny
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="layout">
+      <div id="panel-home" aria-hidden="false" aria-labelledby="tab-home" class="tab-panel -main -show">
+        <div id="information-holder"></div>
+
+        <div id="home-description">
+          Du kan bestille takeaway her og ta med på hytta - eller nyt hjemme!
+        </div>
+
+        <div id="home-gallary"></div>
+
+        <div id="contact-information">
+          <div class="open">
+            <h2>Åpningstider</h2>
+            <div>
+              <span class="hour" aria-label="klokke">15:00 - 21:00</span>
+              <span class="week-day" aria-label="Dag">Mandag - Lørdag</span>
+            </div>
+            <div>
+              <span class="hour" aria-label="klokke">14:00 - 20:00</span>
+              <span class="week-day" aria-label="Dag">Søndag</span>
+            </div>
+          </div>
+
+          <div class="contact">
+            <h2>Kontakt</h2>
+            <div>
+              <abbr title="telefonnummer" class="simular-label">Tlf:</abbr>
+              <a href="tlf:+4741732737" aria-label="telefonnummer" class="">+47 41 73 27 37</a>
+            </div>
+          </div>
+
+          <div class="address">
+            <h2>Besøksadresse</h2>
+            <a href="https://goo.gl/maps/RmvLHBxcD7qx43sA8" target="blank">
+              <div class="street">
+                Lørenveien 71
+              </div>
+              <div class="city">
+                0580 Oslo
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="panel-menu" aria-hidden="true"  aria-labelledby="tab-menu" class="tab-panel -main">
+        <div id="menu">
+          <div id="menu-headline">
+            <nav>
+              <ul class="tablist -menu-headline" role="tablist">
+                <li role="presentation">
+                  <a href="#a-la-carte-headline" role="tab" id="take-away-head-link" aria-selected="true" aria-controls="take-away-headline" class="tab-btn -menu-headline">
+                    Take away
+                  </a>
+                  <div id="take-away-headline" aria-labelledby="take-away-head-link" aria-hidden="false" class="tab-panel -menu-headline -show"></div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div id="menu-content">
+            <div id="take-away-content"></div>
+            <div id="a-la-carte-content"></div>
+            <div id="setmenu-content"></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-map" aria-hidden="false" aria-labelledby="tab-map" class="tab-panel -main">
+        <div id="map"></div>
+      </div>
+      <div id="panel-gallery" aria-hidden="false" aria-labelledby="tab-gallery" class="tab-panel -main">
+        <div id="gallery-content">
+          <h2>Bilde galleri</h2>
+          <div id="gallery-view"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal" role="dialog" aria-live="polite" aria-hidden="true"></div>
+  <script type="text/javascript">startup();</script>
+</body>
+</html>

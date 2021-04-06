@@ -1,0 +1,161 @@
+#menu {
+  #menu-content {
+    h2 {
+      margin-top: 30px;
+    }
+    .page:first-child h2:first-child {
+      margin-top: 0;
+    }
+
+    .tab-panel {
+      min-height: 400px;
+    }
+  }
+
+  #menu-headline {
+    .tablist.-menu-headline > li > a {
+      display: none;
+    }
+
+    .tablist  {
+      text-align: center;
+      > li {
+        display: inline-block;
+        padding: 0 $space-small;
+        margin-bottom: $space-extra-small;
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    #menu-headline .tablist > li {
+        padding: 0 $space-extra-small;
+    }
+  }
+}
+
+.food-wrapper {
+  border-radius: $border-round;
+  border: 2px solid $color-white;  
+  margin: 0 0 $space-medium 0;
+  padding: $space-medium;
+  background-color: $color-bg-card;
+  
+  @media screen and (max-width: $breakpoint-sm) {
+    padding: $space-small;
+  }
+}
+
+.food {
+  position: relative;
+  padding: 0 140px 0 35px;
+  margin: 0;
+
+  &.-modal-view {
+    padding-right: 35px;
+
+    .image-wrapper {
+       display: block;
+       margin-bottom: $space-small;
+    }
+
+    .menu-image, .number {
+      display: none;
+    }
+
+  }
+
+  img {
+    border-radius: $border-round;
+  }
+
+  .image-wrapper {
+     display: none;
+  }
+
+  .menu-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 135px;
+    white-space: nowrap;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 80%;
+    padding: 0 $space-extra-small;
+    margin-bottom: $space-small;
+    background-color: $color-food-label;
+    border-radius: $border-round;
+  }
+
+  .price {
+    padding-top: $space-small;
+    font-weight: 700;
+    &:after  {
+      content: ' kr';
+    }
+  }
+
+  .name {
+    position: relative;
+    font-weight: 700;
+    &:before {
+      content: attr(data-number);
+      position: absolute;
+      right: 100%;
+      top: 0;
+      margin-right: $space-medium;
+    }
+  }
+
+  .notification {
+    font-style: italic;
+    font-size: 90%;
+    &:before {
+      content: 'Allergener: ';
+    }
+  }
+
+  .notification, .description, .price {
+    @include opacity(.8);
+  }
+
+  @media screen and (max-width: $breakpoint-mdp) { 
+    .name:before {
+      margin-right: $space-small;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    padding-left: 25px;
+    padding-right: 100px;
+    .price {
+      left: 25px;
+    }
+    .menu-image {
+      width: 90px;
+    }
+  }
+}
+
+.setmenu-price {
+  text-align: right;
+  font-size: 120%;
+
+  &:before {
+    content: ' Pris per person ';
+    font-size: 92%;
+    @include opacity(.8);
+  }
+
+  &:after  {
+    content: ' kr';
+  }
+
+  + .notification {
+    text-align: right;
+    @include opacity(.8);
+  }
+}
