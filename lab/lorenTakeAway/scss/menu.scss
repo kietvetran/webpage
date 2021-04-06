@@ -40,7 +40,7 @@
   margin: 0 0 $space-medium 0;
   padding: $space-medium;
   background-color: $color-bg-card;
-  
+
   @media screen and (max-width: $breakpoint-sm) {
     padding: $space-small;
   }
@@ -55,8 +55,7 @@
     padding-right: 35px;
 
     .image-wrapper {
-       display: block;
-       margin-bottom: $space-small;
+      display: block;
     }
 
     .menu-image, .number {
@@ -71,6 +70,7 @@
 
   .image-wrapper {
      display: none;
+    margin: 0 ($space-extra-large * -1) $space-small ($space-extra-large * -1);
   }
 
   .menu-image {
@@ -126,6 +126,9 @@
     .name:before {
       margin-right: $space-small;
     }
+    .image-wrapper {
+      margin: 0 ($space-large * -1) $space-small ($space-large * -1);
+    }
   }
 
   @media screen and (max-width: $breakpoint-sm) {
@@ -136,6 +139,9 @@
     }
     .menu-image {
       width: 90px;
+    }
+    .image-wrapper {
+      margin: 0 ($space-large * -1) $space-small ($space-large * -.8);
     }
   }
 }

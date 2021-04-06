@@ -1362,7 +1362,6 @@ body #header {
 }
 .food.-modal-view .image-wrapper {
   display: block;
-  margin-bottom: 10px;
 }
 .food.-modal-view .menu-image, .food.-modal-view .number {
   display: none;
@@ -1372,6 +1371,7 @@ body #header {
 }
 .food .image-wrapper {
   display: none;
+  margin: 0 -40px 10px -40px;
 }
 .food .menu-image {
   position: absolute;
@@ -1421,6 +1421,9 @@ body #header {
   .food .name:before {
     margin-right: 10px;
   }
+  .food .image-wrapper {
+    margin: 0 -30px 10px -30px;
+  }
 }
 @media screen and (max-width: 480px) {
   .food {
@@ -1432,6 +1435,9 @@ body #header {
   }
   .food .menu-image {
     width: 90px;
+  }
+  .food .image-wrapper {
+    margin: 0 -30px 10px -24px;
   }
 }
 
