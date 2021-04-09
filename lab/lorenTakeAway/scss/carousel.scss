@@ -17,7 +17,7 @@
       right: 0;
       top: 0;
       bottom: 0;
-      z-index: 15;
+      z-index: 5;
       background: transparent none repeat 0 0 !important;
     }
   }
@@ -70,7 +70,7 @@
     overflow: hidden;  
     display: block;
     position: relative;
-    z-index: 10;  
+    z-index: 5;  
     &.cloned {
       visibility: hidden;
       z-index: 5;

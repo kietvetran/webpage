@@ -853,7 +853,7 @@ a.disabled, a.disabled:hover, a.disabled:focus, .disabled, .disabled:hover, .dis
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 15;
+  z-index: 5;
   background: transparent none repeat 0 0 !important;
 }
 .carousel_screen .carousel_slider_holder {
@@ -898,7 +898,7 @@ a.disabled, a.disabled:hover, a.disabled:focus, .disabled, .disabled:hover, .dis
   overflow: hidden;
   display: block;
   position: relative;
-  z-index: 10;
+  z-index: 5;
 }
 .carousel_screen .carousel_item.cloned {
   visibility: hidden;
