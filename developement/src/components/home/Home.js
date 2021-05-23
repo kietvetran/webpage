@@ -49,10 +49,22 @@ class Home extends Component {
         </li>
       </ul>
 
+      {
+        /*
+          https://www.eika.no/smartspar/?action=settInnPenger&isin=NO0010003999
+          - har ikke med query param
+          - får ikke sjekke om bruker har eller ikke har installer app
+        */
+      }
+
+
       <div className="test-content">
         <a href="https://www.eika.no/smartspar/">Https - Smartspar</a>
         <a href="https://www.eika.no/smartspar/?action=settInnPenger">Https - Smartspar - settInnPenger</a>
-        <a href="https://www.eika.no/smartspar/settInnPenger">Https - Smartspar - slash settInnPenger</a>
+        <a href="https://www.eika.no/smartspar/?action=settInnPenger&isin=NO0010003999&portfolioBaseCode=03290ASK004199">Https - Smartspar - LG bruker - sett inn penger - Eika Aksjesparkonto I  - Eika Spar</a>
+        <a href="https://www.eika.no/smartspar/?action=settInnPenger&isin=NO0010126030&portfolioBaseCode=03290IPS000437">Https - Smartspar - LG user - IPS konto  - Eika Egenkapitalbevis</a>
+        <a href="https://www.eika.no/smartspar/?action=opprettNySparemaal">Https - Smartspar - Ny sparemål - bare spare</a>
+        <a href="https://www.eika.no/smartspar/?action=opprettNySparemaal&category=pension">Https - Smartspar - Ny sparemål - pensjon</a>
 
         <hr/>
 
@@ -68,6 +80,12 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 1);}}>Script open smartspar - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 2);}}>Script open smartspar - 2</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 3);}}>Script open smartspar - 3</a>
+
+        <hr/>
+
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 4);}}>http Script open smartspar - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 5);}}>http Script open smartspar - 2</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 6);}}>http Script open smartspar - 3</a>
       </div>
 
 
@@ -111,20 +129,20 @@ class Home extends Component {
     const appstore = iOS ? 'https://apps.apple.com/no/app/smartspar/id1450266656' : 
       'https://play.google.com/store/apps/details?id=no.eika.smartspar';
 
-    if ( test === 1 ) {
+    if ( test === 1 || test === 4 ) {
       const now = new Date().valueOf();
       setTimeout( () => {
           if ( (new Date().valueOf() - now) > 100) { return; }
           window.location = appstore;
       }, 25);
-    } else if ( test === 2 ) {
+    } else if ( test === 2 || test === 5 ) {
       const time = (new Date()).getTime();
       setTimeout( () => {
         const v = (new Date()).getTime();
         if ( (v - time) > 200 ) { return; }
         window.location = appstore;
       }, 100);
-    } else if ( test === 3 ) {
+    } else if ( test === 3 || test === 6 ) {
       const state = { 'timer': 0, stop: false };
       const blur = () => {
         clearTimeout( state.timer );
@@ -139,7 +157,9 @@ class Home extends Component {
       }, 300);
     }
 
-    window.location = 'smartspar://home';
+    //window.location = 'smartspar://home';
+    window.location =  test < 4 ?
+      'smartspar://home' : 'https://www.eika.no/smartspar/';
   }
 }
 
