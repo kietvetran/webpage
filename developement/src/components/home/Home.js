@@ -86,6 +86,22 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 4);}}>http Script open smartspar - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 5);}}>http Script open smartspar - 2</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 6);}}>http Script open smartspar - 3</a>
+
+        <hr/>
+
+        <div aria-label="beløp">45 kr </div>
+
+        <div aria-label="beløp">
+          <span aria-hidden="true">45 kr</span>
+        </div>
+
+        <div title="beløp 45 kr">
+          <span aria-hidden="true">45 kr</span>
+        </div>
+
+        <hr/>
+        
+        <a href="mailto:kietvetran@gmail.com?Subject=Hei&body=Hello">mailto</a>
       </div>
 
 
