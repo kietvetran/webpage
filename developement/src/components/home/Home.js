@@ -102,6 +102,11 @@ class Home extends Component {
         <hr/>
         
         <a href="mailto:kietvetran@gmail.com?Subject=Hei&body=Hello">mailto</a>
+
+        <hr/>
+        
+        <a href="https://eika.test.eika.no/">https://eika.test.eika.no/</a>
+        <a href="https://eika.test.eika.no/smartspar">https://eika.test.eika.no/smartspar</a>
       </div>
 
 
