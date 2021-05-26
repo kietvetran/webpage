@@ -57,59 +57,13 @@ class Home extends Component {
         */
       }
 
-
       <div className="test-content">
-        <a href="https://www.eika.no/smartspar/">Https - Smartspar</a>
-        <a href="https://www.eika.no/smartspar/?action=settInnPenger">Https - Smartspar - settInnPenger</a>
-        <a href="https://www.eika.no/smartspar/?action=settInnPenger&isin=NO0010003999&portfolioBaseCode=03290ASK004199">Https - Smartspar - LG bruker - sett inn penger - Eika Aksjesparkonto I  - Eika Spar</a>
-        <a href="https://www.eika.no/smartspar/?action=settInnPenger&isin=NO0010126030&portfolioBaseCode=03290IPS000437">Https - Smartspar - LG user - IPS konto  - Eika Egenkapitalbevis</a>
-        <a href="https://www.eika.no/smartspar/?action=opprettNySparemaal">Https - Smartspar - Ny sparemål - bare spare</a>
-        <a href="https://www.eika.no/smartspar/?action=opprettNySparemaal&category=pension">Https - Smartspar - Ny sparemål - pensjon</a>
-
-        <hr/>
-
-        <a href="smartspar://home">Smartspar</a>
-        <a href="smartspar://home?action=settInnPenger">Smartspar - LG bruker - sett inn penger</a>
-        <a href="smartspar://home?action=settInnPenger&isin=NO0010003999&portfolioBaseCode=03290ASK004199">Smartspar - LG bruker - sett inn penger - Eika Aksjesparkonto I  - Eika Spar</a>
-        <a href="smartspar://home?action=settInnPenger&isin=NO0010126030&portfolioBaseCode=03290IPS000437">Smartspar - LG user - IPS konto  - Eika Egenkapitalbevis</a>
-        <a href="smartspar://home?action=opprettNySparemaal">Smartspar - Ny sparemål - bare spare</a>
-        <a href="smartspar://home?action=opprettNySparemaal&category=pension">Smartspar - Ny sparemål - pensjon</a>
-
-        <hr/>
-
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 1);}}>Script open smartspar - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 2);}}>Script open smartspar - 2</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 3);}}>Script open smartspar - 3</a>
-
-        <hr/>
-
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 4);}}>http Script open smartspar - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 5);}}>http Script open smartspar - 2</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar', 6);}}>http Script open smartspar - 3</a>
-
-        <hr/>
-
-        <div aria-label="beløp">45 kr </div>
-
-        <div aria-label="beløp">
-          <span aria-hidden="true">45 kr</span>
-        </div>
-
-        <div title="beløp 45 kr">
-          <span aria-hidden="true">45 kr</span>
-        </div>
-
-        <hr/>
-        
-        <a href="mailto:kietvetran@gmail.com?Subject=Hei&body=Hello">mailto</a>
-
-        <hr/>
-        
-        <a href="https://eika.test.eika.no/">https://eika.test.eika.no/</a>
-        <a href="https://eika.test.eika.no/smartspar">https://eika.test.eika.no/smartspar</a>
-      </div>
-
-
+        <h1>Kiet - test</h1>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home');}}>Smartspar</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger');}}>Smartspar - sett inn penger</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&isin=NO0008001880&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto - Eika Norden</a>
+       </div>
     </div>
   }
 
@@ -142,7 +96,32 @@ class Home extends Component {
     }
   }
 
-  openSmartspar = ( test ) => {
+  openSmartspar = ( url ) => {
+    const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+    const android = navigator.userAgent.match('Android');
+    if ( !iOS && !android ) { return; }
+
+    const appstore = iOS ? 'https://apps.apple.com/no/app/smartspar/id1450266656' : 
+      'https://play.google.com/store/apps/details?id=no.eika.smartspar';
+
+    const state = { 'timer': 0, stop: false };
+    const blur = () => {
+      clearTimeout( state.timer );
+      state.stop = true;
+    };
+    window.removeEventListener('blur', blur)
+    window.addEventListener('blur', blur);
+
+    state.timer = setTimeout( () => {
+      if (state.stop) { return; }
+      window.location = appstore;        
+    }, 300);
+
+    window.location = url;
+  }
+
+
+  _openSmartspar = ( test ) => {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
