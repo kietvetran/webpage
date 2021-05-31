@@ -71,9 +71,9 @@ class Home extends Component {
 
         <hr/>
 
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3');}}>Kiet test - 3 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-4');}}>Kiet test - 4 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-5');}}>Kiet test - 5 - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3');}}>Kiet test - 3 - 2</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-4');}}>Kiet test - 4 - 2</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-5');}}>Kiet test - 5 - 2</a>
        </div>
     </div>
   }
@@ -148,12 +148,27 @@ class Home extends Component {
 
     const state = { 'timer': 0, stop: false };
     const blur = () => {
-      alert('blur...');
       clearTimeout( state.timer );
       state.stop = true;
     };
     window.removeEventListener('blur', blur)
     window.addEventListener('blur', blur);
+
+
+    // these just chill and listen for events
+    document.onAlert = function (msg) {
+      alert('on alert');
+    };
+    document.onConfirm = function (msg) {
+      alert('on confirm');
+    };
+
+    window.onpopstate = function(event) {
+      alert( event );
+      alert( event.type );
+    }
+
+    alert('action...');
 
     if ( test ) {
       if ( test === 3 ) {
