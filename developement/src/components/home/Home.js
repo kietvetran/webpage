@@ -74,6 +74,8 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-6');}}>Kiet test - 6 - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-7');}}>Kiet test - 7 - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-8');}}>Kiet test - 8 - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-9');}}>Kiet test - 9 - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-10');}}>Kiet test - 10 - 1</a>
        </div>
     </div>
   }
@@ -133,6 +135,10 @@ class Home extends Component {
       this.openSmartspar( 'smartspar://home', 5 );      
     } else if ( key === 'kiet-test-8' ) {
       this.openSmartspar( 'smartspar://home', 6 );      
+    } else if ( key === 'kiet-test-9' ) {
+      this.openSmartspar( 'smartspar://home', 7 );      
+    } else if ( key === 'kiet-test-10' ) {
+      this.openSmartspar( 'smartspar://home', 8 );      
     } 
   }
 
@@ -168,7 +174,8 @@ class Home extends Component {
         }, 300);
       } else if ( test === 3 ) {
         window.location = url;
-        setTimeout( () => {
+        state.timer = setTimeout( () => {
+        //setTimeout( () => {
           window.location.replace(appstore);
         }, 100);
       } else if ( test === 4 ) {
@@ -188,6 +195,18 @@ class Home extends Component {
           window.location.replace(appstore);
         }, 300);
         window.location = url;
+      } else if ( test === 7 ) {
+        window.location = url;
+        state.timer = setTimeout( () => {
+        //setTimeout( () => {
+          window.location.replace(appstore);
+        }, 200);
+      } else if ( test === 8 ) {
+        window.location = url;
+        state.timer = setTimeout( () => {
+        //setTimeout( () => {
+          window.location.replace(appstore);
+        }, 300);
       } else {
         window.location = url;
         window.location.replace(appstore);
