@@ -64,13 +64,6 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&isin=NO0008001880&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto - Eika Norden</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=opprettNyttSparemaal');}}>Smartspar - ny sparemål - bare spare</a>
-
-        <hr/>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1','smartspar://home');}}>Kiet - test 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2','smartspar://home');}}>Kiet - test 2</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3','smartspar://home');}}>Kiet - test 3</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-4','smartspar://home');}}>Kiet - test 4</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-5','smartspar://home');}}>Kiet - test 15</a>
        </div>
     </div>
   }
@@ -123,9 +116,12 @@ class Home extends Component {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
-
-    const appstore = iOS ? 'https://apps.apple.com/no/app/smartspar/id1450266656' : 
-      'https://play.google.com/store/apps/details?id=no.eika.smartspar';
+    const isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
+    const appstore = iOS ? ( 
+        isSafari ?  
+          'https://itunes.apple.com/app/id1450266656' :
+          'https://apps.apple.com/no/app/smartspar/id1450266656' 
+    ) : 'https://play.google.com/store/apps/details?id=no.eika.smartspar';
 
     const state = { 'timer': 0, stop: false };
     const blur = () => {
@@ -137,7 +133,11 @@ class Home extends Component {
 
     state.timer = setTimeout( () => {
       if (state.stop) { return; }
-      window.location = appstore;        
+      if ( isSafari ) {
+        window.location.replace(appstore);
+      } else {
+        window.location = appstore;
+      }   
     }, 300);
 
     window.location = url;
@@ -176,7 +176,7 @@ class Home extends Component {
 
       state.timer = setTimeout( () => {
         if (state.stop) { return; }
-        window.location = appstore;        
+        window.location = appstore;
       }, 300);
     }
 
