@@ -67,7 +67,7 @@ class Home extends Component {
 
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 3</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 4</a>
        </div>
     </div>
   }
@@ -128,13 +128,14 @@ class Home extends Component {
        navigator.userAgent.indexOf('CriOS') == -1 &&
        navigator.userAgent.indexOf('FxiOS') == -1;
 
-    alert('Safari: ' + isSafari );
-
     const appstore = iOS ? ( 
         isSafari ?  
           'https://itunes.apple.com/app/id1450266656' :
           'https://apps.apple.com/no/app/smartspar/id1450266656' 
     ) : 'https://play.google.com/store/apps/details?id=no.eika.smartspar';
+
+    alert('Safari: ' + isSafari );
+    alert( appstore );
 
     const state = { 'timer': 0, stop: false };
     const blur = () => {
@@ -146,20 +147,19 @@ class Home extends Component {
 
     state.timer = setTimeout( () => {
       if (state.stop) { return; }
-      if ( isSafari ) {
-        window.location.replace(appstore);
-      } else {
         window.location = appstore;
-      }   
     }, 300);
-
 
     if ( isSafari ) {
       window.location.replace(appstore);
+      setTimeout( () => {
+        window.location = url;
+      }, 1000);
+      clearTimeout( state.timer );
+    } else {
+      window.location = url;
     }
-    window.location = url;
   }
-
 
   _openSmartspar = ( test ) => {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
