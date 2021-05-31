@@ -67,7 +67,7 @@ class Home extends Component {
 
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 2</a>
        </div>
     </div>
   }
@@ -124,9 +124,9 @@ class Home extends Component {
     if ( !iOS && !android ) { return; }
 
     const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
-                   navigator.userAgent &&
-                   navigator.userAgent.indexOf('CriOS') == -1 &&
-                   navigator.userAgent.indexOf('FxiOS') == -1;
+       navigator.userAgent &&
+       navigator.userAgent.indexOf('CriOS') == -1 &&
+       navigator.userAgent.indexOf('FxiOS') == -1;
 
     alert('Safari: ' + isSafari );
 
