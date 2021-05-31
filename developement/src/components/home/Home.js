@@ -68,14 +68,12 @@ class Home extends Component {
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 4</a>
+
+        <hr/>
+
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3');}}>Kiet test - 3 - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-4');}}>Kiet test - 4 - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-5');}}>Kiet test - 5 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-6');}}>Kiet test - 6 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-7');}}>Kiet test - 7 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-8');}}>Kiet test - 8 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-9');}}>Kiet test - 9 - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-10');}}>Kiet test - 10 - 1</a>
        </div>
     </div>
   }
@@ -124,21 +122,11 @@ class Home extends Component {
         alert('catche....');
       }
     } else if ( key === 'kiet-test-3' ) {
-      this.openSmartspar( 'smartspar://home', 1 );      
-    } else if ( key === 'kiet-test-4' ) {
-      this.openSmartspar( 'smartspar://home', 2 );      
-    } else if ( key === 'kiet-test-5' ) {
       this.openSmartspar( 'smartspar://home', 3 );      
-    } else if ( key === 'kiet-test-6' ) {
+    } else if ( key === 'kiet-test-4' ) {
       this.openSmartspar( 'smartspar://home', 4 );      
-    } else if ( key === 'kiet-test-7' ) {
+    } else if ( key === 'kiet-test-5' ) {
       this.openSmartspar( 'smartspar://home', 5 );      
-    } else if ( key === 'kiet-test-8' ) {
-      this.openSmartspar( 'smartspar://home', 6 );      
-    } else if ( key === 'kiet-test-9' ) {
-      this.openSmartspar( 'smartspar://home', 7 );      
-    } else if ( key === 'kiet-test-10' ) {
-      this.openSmartspar( 'smartspar://home', 8 );      
     } 
   }
 
@@ -160,6 +148,7 @@ class Home extends Component {
 
     const state = { 'timer': 0, stop: false };
     const blur = () => {
+      alert('blur...');
       clearTimeout( state.timer );
       state.stop = true;
     };
@@ -167,15 +156,9 @@ class Home extends Component {
     window.addEventListener('blur', blur);
 
     if ( test ) {
-      if ( test === 2 ) {
-        window.location = url;
-        setTimeout( () => {
-          window.location.replace(appstore);
-        }, 300);
-      } else if ( test === 3 ) {
+      if ( test === 3 ) {
         window.location = url;
         state.timer = setTimeout( () => {
-        //setTimeout( () => {
           window.location.replace(appstore);
         }, 100);
       } else if ( test === 4 ) {
@@ -185,31 +168,9 @@ class Home extends Component {
         window.location = url;
       } else if ( test === 5 ) {
         state.timer = setTimeout( () => {
-          if (state.stop) { return; }
-          window.location.replace(appstore);
-        }, 1000);
-        window.location = url;
-      } else if ( test === 6 ) {
-        state.timer = setTimeout( () => {
-          if (state.stop) { return; }
-          window.location.replace(appstore);
-        }, 300);
-        window.location = url;
-      } else if ( test === 7 ) {
-        window.location = url;
-        state.timer = setTimeout( () => {
-        //setTimeout( () => {
           window.location.replace(appstore);
         }, 200);
-      } else if ( test === 8 ) {
         window.location = url;
-        state.timer = setTimeout( () => {
-        //setTimeout( () => {
-          window.location.replace(appstore);
-        }, 300);
-      } else {
-        window.location = url;
-        window.location.replace(appstore);
       }
     } else {
       state.timer = setTimeout( () => {
