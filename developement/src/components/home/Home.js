@@ -64,6 +64,11 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&isin=NO0008001880&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto - Eika Norden</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=opprettNyttSparemaal');}}>Smartspar - ny sparemål - bare spare</a>
+
+        <hr/>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2</a>
+
        </div>
     </div>
   }
@@ -99,16 +104,12 @@ class Home extends Component {
       window.location.replace("https://itunes.apple.com/app/id1450266656");
     } else if ( key === 'kiet-test-2' ) {
       alert( key );
-      window.location.href = window.location.replace("https://itunes.apple.com/app/id1450266656");
-    } else if ( key === 'kiet-test-3' ) {
-      alert( key );
-      window.location = window.location.replace("https://itunes.apple.com/app/id1450266656");
-    } else if ( key === 'kiet-test-4' ) {
-      alert( key );
-      window.location.href = 'https://itunes.apple.com/app/id1450266656';
-    } else if ( key === 'kiet-test-5' ) {
-      alert( key );
-      window.location = 'https://itunes.apple.com/app/id1450266656';
+      try {
+        window.location = 'smartspar://home';
+      } catch ( error ) {
+        alert('catche....');
+        window.location.replace("https://itunes.apple.com/app/id1450266656");
+      }
     }
   }
 
@@ -116,8 +117,14 @@ class Home extends Component {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
-    const isSafari = navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1;
-    alert(isSafari);
+
+    const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                   navigator.userAgent &&
+                   navigator.userAgent.indexOf('CriOS') == -1 &&
+                   navigator.userAgent.indexOf('FxiOS') == -1;
+
+    alert('Safari: ' + isSafari );
+
     const appstore = iOS ? ( 
         isSafari ?  
           'https://itunes.apple.com/app/id1450266656' :
@@ -144,7 +151,6 @@ class Home extends Component {
     try {
       window.location = url;
     } catch ( error ) {
-      alert('catch - error');
       if ( isSafari ) {
         window.location.replace(appstore);        
       }
