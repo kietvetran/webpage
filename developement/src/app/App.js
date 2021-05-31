@@ -47,7 +47,7 @@ class App extends Component {
         {'id': 'home', 'path': '/home', 'name': 'Home'},
         //{'id': 'profile', 'path': '/profile', 'name': 'Profile'},
         {'id': 'demo', 'path': '/demo', 'name': 'Demo' },
-        {'id': 'gym', 'path': '/gym', 'name': 'Gym' }
+        //{'id': 'gym', 'path': '/gym', 'name': 'Gym' }
       ]
     };
 
@@ -95,7 +95,7 @@ class App extends Component {
               <Route exact path='/profile' render={(e) => { return <Profile {...e} {...common} /> }} />
               <Route exact path='/profileWizard' render={(e) => { return <ProfileWizard {...e} {...common} /> }} />
               <Route exact path='/signin' render={(e) => { return <Signin {...e} {...common} /> }} />              
-              <Redirect from='/*' to='/home'/>
+              <Route exact path='/' render={(e) => { return <Home {...e} {...common} /> }} />
             </Switch>
           </div>
         </main>
