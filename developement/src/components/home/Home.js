@@ -116,7 +116,8 @@ class Home extends Component {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
-    const isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
+    const isSafari = navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1;
+    alert(isSafari);
     const appstore = iOS ? ( 
         isSafari ?  
           'https://itunes.apple.com/app/id1450266656' :
@@ -140,7 +141,14 @@ class Home extends Component {
       }   
     }, 300);
 
-    window.location = url;
+    try {
+      window.location = url;
+    } catch ( error ) {
+      alert('catch - error');
+      if ( isSafari ) {
+        window.location.replace(appstore);        
+      }
+    }
   }
 
 
