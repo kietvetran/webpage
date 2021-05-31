@@ -68,7 +68,6 @@ class Home extends Component {
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 1</a>
-
        </div>
     </div>
   }
@@ -105,10 +104,11 @@ class Home extends Component {
     } else if ( key === 'kiet-test-2' ) {
       alert( key );
       try {
-        const url = 'smartspar://home';
+        //const url = 'smartspar://home';
+        const url = 'https://www.eika.no/smartspar';
         const iframe = document.createElement('iframe');
         iframe.src = url;
-        iframe.style.display = 'none';
+        //iframe.style.display = 'none';
         document.body.appendChild(iframe);
 
         alert('done...');
@@ -153,13 +153,11 @@ class Home extends Component {
       }   
     }, 300);
 
-    try {
-      window.location = url;
-    } catch ( error ) {
-      if ( isSafari ) {
-        window.location.replace(appstore);        
-      }
+
+    if ( isSafari ) {
+      window.location.replace(appstore);
     }
+    window.location = url;
   }
 
 
