@@ -67,7 +67,7 @@ class Home extends Component {
 
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
-        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 1</a>
 
        </div>
     </div>
@@ -105,10 +105,15 @@ class Home extends Component {
     } else if ( key === 'kiet-test-2' ) {
       alert( key );
       try {
-        window.location = 'smartspar://home';
+        const url = 'smartspar://home';
+        const iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        alert('done...');
       } catch ( error ) {
         alert('catche....');
-        window.location.replace("https://itunes.apple.com/app/id1450266656");
       }
     }
   }
