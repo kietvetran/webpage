@@ -68,6 +68,7 @@ class Home extends Component {
         <hr/>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1');}}>Kiet test - 1</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2');}}>Kiet test - 2 - 4</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3');}}>Kiet test - 3 - 1</a>
        </div>
     </div>
   }
@@ -115,10 +116,12 @@ class Home extends Component {
       } catch ( error ) {
         alert('catche....');
       }
-    }
+    } else if ( key === 'kiet-test-3' ) {
+      this.openSmartspar( 'smartspar://home', 1 );      
+    } 
   }
 
-  openSmartspar = ( url ) => {
+  openSmartspar = ( url, test ) => {
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
@@ -134,9 +137,6 @@ class Home extends Component {
           'https://apps.apple.com/no/app/smartspar/id1450266656' 
     ) : 'https://play.google.com/store/apps/details?id=no.eika.smartspar';
 
-    alert('Safari: ' + isSafari );
-    alert( appstore );
-
     const state = { 'timer': 0, stop: false };
     const blur = () => {
       clearTimeout( state.timer );
@@ -145,19 +145,24 @@ class Home extends Component {
     window.removeEventListener('blur', blur)
     window.addEventListener('blur', blur);
 
-    state.timer = setTimeout( () => {
-      if (state.stop) { return; }
-        window.location = appstore;
-    }, 300);
-
-    if ( isSafari ) {
-      window.location.replace(appstore);
-      setTimeout( () => {
+    if ( test ) {
         window.location = url;
-      }, 1000);
-      clearTimeout( state.timer );
+        window.location.replace(appstore);
     } else {
-      window.location = url;
+      state.timer = setTimeout( () => {
+        if (state.stop) { return; }
+          window.location = appstore;
+      }, 300);
+
+      if ( isSafari ) {
+        window.location.replace(appstore);
+        setTimeout( () => {
+          window.location = url;
+        }, 1000);
+        clearTimeout( state.timer );
+      } else {
+        window.location = url;
+      }
     }
   }
 
