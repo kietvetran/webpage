@@ -64,6 +64,13 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&isin=NO0008001880&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto - Eika Norden</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=opprettNyttSparemaal');}}>Smartspar - ny sparemål - bare spare</a>
+
+        <hr/>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-1','smartspar://home');}}>Kiet - test 1</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-2','smartspar://home');}}>Kiet - test 2</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-3','smartspar://home');}}>Kiet - test 3</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-4','smartspar://home');}}>Kiet - test 4</a>
+        <a href="#" role="button" onClick={(e)=>{this._click(e,'kiet-test-5','smartspar://home');}}>Kiet - test 15</a>
        </div>
     </div>
   }
@@ -94,6 +101,21 @@ class Home extends Component {
 
     if ( key === 'open-smartspar' ) {
       this.openSmartspar( data );
+    } else if ( key === 'kiet-test-1' ) {
+      alert( key );
+      window.location.replace("https://itunes.apple.com/app/id1450266656");
+    } else if ( key === 'kiet-test-2' ) {
+      alert( key );
+      window.location.href = window.location.replace("https://itunes.apple.com/app/id1450266656");
+    } else if ( key === 'kiet-test-3' ) {
+      alert( key );
+      window.location = window.location.replace("https://itunes.apple.com/app/id1450266656");
+    } else if ( key === 'kiet-test-4' ) {
+      alert( key );
+      window.location.href = 'https://itunes.apple.com/app/id1450266656';
+    } else if ( key === 'kiet-test-5' ) {
+      alert( key );
+      window.location = 'https://itunes.apple.com/app/id1450266656';
     }
   }
 
