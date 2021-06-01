@@ -65,9 +65,6 @@ class Home extends Component {
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=settInnPenger&isin=NO0008001880&portfolioBaseCode=23180ASK000003');}}>Smartspar - Jørgen - sett inn penger - Martine Aksjesparkonto - Eika Norden</a>
         <a href="#" role="button" onClick={(e)=>{this._click(e,'open-smartspar','smartspar://home?action=opprettNyttSparemaal');}}>Smartspar - ny sparemål - bare spare</a>
 
-        <hr/>
-
-
       </div>
     </div>
   }
@@ -125,7 +122,6 @@ class Home extends Component {
   }
 
   openSmartspar = ( url ) => {
-    alert( 'her..' );
     const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
     const android = navigator.userAgent.match('Android');
     if ( !iOS && !android ) { return; }
@@ -144,7 +140,6 @@ class Home extends Component {
 
 
     const state = { 'timer': 0, stop: false, count: isSafari ? 2 : 1};
-    alert('videre...');
     const blur = () => {
       if ( --state.count ) { return; }
 
